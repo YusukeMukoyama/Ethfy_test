@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20160218075025) do
     t.string   "encrypted_otp_secret_iv",   limit: 255
     t.string   "encrypted_otp_secret_salt", limit: 255
     t.integer  "consumed_timestep",         limit: 4
-    t.boolean  "otp_required_for_login"
+    t.boolean  "otp_required_for_login",    limit: 1
     t.text     "otp_backup_codes",          limit: 65535
   end
 
@@ -66,3 +66,7 @@ ActiveRecord::Schema.define(version: 20160218075025) do
 
   add_index "wallets", ["user_id"], name: "index_wallets_on_user_id", using: :btree
 
+  add_foreign_key "transactions", "users", name: "transactions_user_id_fk"
+  add_foreign_key "transactions", "wallets", name: "transactions_wallet_id_fk"
+  add_foreign_key "wallets", "users", name: "wallets_user_id_fk"
+end

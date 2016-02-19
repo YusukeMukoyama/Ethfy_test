@@ -1,1 +1,1 @@
-{"virtualbox":{"/vagrant_data":{"guestpath":"/vagrant_data","hostpath":"/Users/y-mukoyama/vagrant/develop/data","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/y-mukoyama/vagrant/develop","disabled":false,"__vagrantfile":true}}}
+{"virtualbox":{"/vagrant_data":{"guestpath":"/vagrant_data","hostpath":"/Users/y-mukoyama/vagrant/Ethfy_test/data","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/y-mukoyama/vagrant/Ethfy_test","disabled":false,"__vagrantfile":true}}}

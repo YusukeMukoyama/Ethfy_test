@@ -2,13 +2,13 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 gem 'mysql2', '~> 0.3.20'
 
 # gem 'nokogiri'
-# gem 'nokogiri', '~> 1.6', '>= 1.6.7.rc3'
+gem 'nokogiri', '~> 1.6', '>= 1.6.7.rc3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -45,7 +45,8 @@ gem 'rmagick', :require => 'RMagick'
 gem 'rqrcode_png'
 gem 'chunky_png'
 gem 'kraken_ruby'
-gem 'foreigner'
+# gem 'foreigner'
+gem 'mailboxer', :git => 'git://github.com/div/mailboxer.git', :branch => 'rails42-foreigner'
 
 
 group :development, :test do
@@ -57,7 +58,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  # gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
