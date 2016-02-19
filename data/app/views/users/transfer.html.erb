@@ -1,0 +1,5 @@
+<%= form_tag('/transfer_done', mehod: :post) do %>
+  <p>送り先: <input type="text" name="wallet"></p>
+  <p>送る量: <input type="text" name="amount"> Ether</p>
+<input type="submit" value="送信">
+<% end %>

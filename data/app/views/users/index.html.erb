@@ -1,0 +1,19 @@
+<div>
+  <% if current_user.otp_required_for_login %>
+    <%= button_to "Disable 2FA", two_factor_auth_path, method: :delete %>
+  <% else %>
+    <%= button_to "Enable 2FA", new_two_factor_auth_path, method: :get %>
+  <% end %>
+</div>
+
+<h1>ウォレット残高</h1>
+<p><%= @amount %> Ether  ≒ ##JPY</p>
+
+<h1>取引履歴</h1>
+<% @transactions.each do |transaction| %>
+  <p>取引日:<%= transaction.created_at  %></p>
+  <p>送り人:<%= transaction.sender  %></p>
+  <p>受取人:<%= transaction.reciever %></p>
+  <p>量:<%= transaction.amount %> Ether</p>
+<% end %>
+
