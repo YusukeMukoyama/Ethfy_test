@@ -27,33 +27,33 @@ ActiveRecord::Schema.define(version: 20160218075025) do
   add_index "transactions", ["wallet_id"], name: "index_transactions_on_wallet_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                     default: "", null: false
-    t.string   "encrypted_password",        default: "", null: false
-    t.string   "reset_password_token"
+    t.string   "email",                     limit: 255,   default: "", null: false
+    t.string   "encrypted_password",        limit: 255,   default: "", null: false
+    t.string   "reset_password_token",      limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",             default: 0,  null: false
+    t.integer  "sign_in_count",             limit: 4,     default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "confirmation_token"
+    t.string   "current_sign_in_ip",        limit: 255
+    t.string   "last_sign_in_ip",           limit: 255
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.string   "confirmation_token",        limit: 255
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
-    t.string   "encrypted_otp_secret"
-    t.string   "encrypted_otp_secret_iv"
-    t.string   "encrypted_otp_secret_salt"
-    t.integer  "consumed_timestep"
+    t.string   "unconfirmed_email",         limit: 255
+    t.string   "encrypted_otp_secret",      limit: 255
+    t.string   "encrypted_otp_secret_iv",   limit: 255
+    t.string   "encrypted_otp_secret_salt", limit: 255
+    t.integer  "consumed_timestep",         limit: 4
     t.boolean  "otp_required_for_login"
-    t.text     "otp_backup_codes"
+    t.text     "otp_backup_codes",          limit: 65535
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "wallets", force: :cascade do |t|
     t.datetime "created_at",               null: false
@@ -66,7 +66,3 @@ ActiveRecord::Schema.define(version: 20160218075025) do
 
   add_index "wallets", ["user_id"], name: "index_wallets_on_user_id", using: :btree
 
-  add_foreign_key "transactions", "users"
-  add_foreign_key "transactions", "wallets"
-  add_foreign_key "wallets", "users"
-end
